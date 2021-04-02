@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Домашняя работа">
+    <meta name="author" content="Андрей Клименченко FE108">
+    <title>Домашняя работа</title>
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="./script.js"></script>
+</head>
+<body>
+    <div id="navigation">
+        <div class="nav-list">
+            <button id="js-show-all">Все контакты</button>
+            <button id="js-search">Поиск</button>
+            <button id="js-add-new">Добавить</button>
+        </div>
+    </div>
+    <div id="search-panel" class="panel">
+        <h1>Поиск контактов</h1>
+        <form id="search" action="#">
+            <div id="results"></div>
+            <div>
+                <label>
+                    <input type="text" name="search" id="search" placeholder="Введите имя" />
+                </label>
+            </div>
+            <input type="submit" value="Отправить" />
+        </form>
+    </div>
+        <div id="contact-panel" class="panel">
+            <form id="contact" action="#">
+                <h1>Добавить новый контакт</h1>
+                <div>
+                    <label>
+                        <input type="text" name="person" id="name" placeholder="Андрей Клименченко" />
+                    </label>
+                    <label>
+                        <input type="text" name="phone" id="name" placeholder="+375293211231" />
+                    </label>
+                    <label>
+                        <input type="text" name="email" id="name" placeholder="andrey90@mail.ru" />
+                    </label>
+                </div>
+                <div>
+                    <input type="submit" value="Отправить" />
+                </div>
+            </form>
+        </div>
+        <div id ="show-panel" class="panel">
+    </div>
+</body>
+</html>
