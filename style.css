@@ -1,6 +1,7 @@
 h1{
-  font-size:1.2em;
-  text-align:center;
+  font-size: 2em;
+  text-align: center;
+  color: #4A4FF2;
 }
   
 .panel{
@@ -12,31 +13,31 @@ h1{
 }
 
 input{
-  width:100%;
-  box-sizing:border-box;
-  font-size:1em;
-  margin-top:0.5em;
-  padding:0.5em;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1em;
+  margin-top: 0.5em;
+  padding: 0.5em;
   cursor: pointer;
   border-radius: 5px;
   border: 1px solid rgb(185, 190, 190);
 }
 
 input:focus{
-  outline:none;
+  outline: none;
 }
 
 input::after{
-  width:100%;
-  height:10px;
+  width: 100%;
+  height: 10px;
   background:red;
 }
 
 .nav-list{
-  width:92.5%;
-  max-width:30em;
-  text-align:center;
-  margin:auto;
+  width: 92.5%;
+  max-width: 30em;
+  text-align: center;
+  margin: auto;
 }
 
 .nav_btn {
@@ -55,8 +56,8 @@ input::after{
 }
 
 .nav_btn:hover {
-    color: #4A4FF2;
-    transform: scale(1.15);
+  color: #4A4FF2;
+  transform: scale(1.15);
 } 
 
 #edit-panel {
@@ -66,11 +67,12 @@ input::after{
 .submit_btn {
   width: 100%;
   text-align: center;
+  margin-top: 1em;
   padding: 0px;
   background-color: transparent;
-  border: none;
   cursor: pointer;
   outline: none;
+  border: none;
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
@@ -79,3 +81,6 @@ input::after{
   color: #111111;
 }
 
+.submit_btn:hover {
+  color: #4A4FF2;
+} 
