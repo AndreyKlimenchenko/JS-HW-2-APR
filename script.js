@@ -11,11 +11,10 @@ class AddressBook {
         email,
         address
       });
-      localStorage.setItem('contacts', JSON.stringify(this.data));
+      this.setStorage('contacts', this.data);
     }
     returnAll() {
-      const contacts = localStorage.getItem('contacts');
-      this.data = contacts ? JSON.parse(contacts) : [];
+      this.data = this.getStorage('contacts');
       return this.data;
     }
   search(searchTerm){
@@ -37,29 +36,34 @@ class AddressBook {
       this.returnAll();
   }
   removeContact(name) {
-    const contacts = localStorage.getItem('contacts');
-    let parsedContacts = contacts ? JSON.parse(contacts) : [];
+    let parsedContacts = this.getStorage('contacts');
     this.data = parsedContacts.filter(contact => {
       return contact.name.toLowerCase() !== name.toLowerCase();
     })
-    localStorage.setItem('contacts', JSON.stringify(this.data));
+    this.setStorage('contacts', this.data);
   }
   editContact(name, contact){
-    const contacts = localStorage.getItem('contacts');
-    let parsedContacts = contacts ? JSON.parse(contacts) : [];
+    let parsedContacts = this.getStorage('contacts');
     this.data = parsedContacts.map(item => {
-      if( item.name === name) {
-          return item = contact;
+      if( item.name.toLowerCase() === name.toLowerCase()) {
+          return contact;
       }
       return item;
   });
-  localStorage.setItem('contacts', JSON.stringify(this.data));
+  this.setStorage('contacts', this.data);
+  }
+  setStorage(key, value){
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+  getStorage(key){
+    const data = localStorage.getItem(key);
+    const parsedData = data ? JSON.parse(data) : [];
+    return parsedData;
   }
 }
 
 const newApp = new AddressBook();
 newApp.init();
-
 let form  = document.getElementById('contact');
 form.addEventListener('submit', function(){
   newApp.addNewContact(form.person.value,form.phone.value,form.email.value,form.address.value);
