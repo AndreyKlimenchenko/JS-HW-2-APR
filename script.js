@@ -42,8 +42,18 @@ class AddressBook {
     this.data = parsedContacts.filter(contact => {
       return contact.name.toLowerCase() !== name.toLowerCase();
     })
-    console.log('!!!!');
     localStorage.setItem('contacts', JSON.stringify(this.data));
+  }
+  editContact(name, contact){
+    const contacts = localStorage.getItem('contacts');
+    let parsedContacts = contacts ? JSON.parse(contacts) : [];
+    this.data = parsedContacts.map(item => {
+      if( item.name === name) {
+          return item = contact;
+      }
+      return item;
+  });
+  localStorage.setItem('contacts', JSON.stringify(this.data));
   }
 }
 
@@ -86,7 +96,7 @@ document.getElementById('js-show-all').addEventListener('click', function(){
   }
 
   document.getElementById('show-panel').style.display = 'block';
-  
+  document.getElementById('edit-panel').style.display = 'none';
   document.getElementById('search-panel').style.display = 'none';
   document.getElementById('contact-panel').style.display = 'none';
 });
@@ -95,14 +105,52 @@ document.getElementById('js-search').addEventListener('click', function(){
   document.getElementById('show-panel').style.display = 'none';
   document.getElementById('search-panel').style.display = 'block';
   document.getElementById('contact-panel').style.display = 'none';
+  document.getElementById('edit-panel').style.display = 'none';
 });
       
 document.getElementById('js-add-new').addEventListener('click', function(){
   document.getElementById('show-panel').style.display = 'none';
   document.getElementById('search-panel').style.display = 'none';
+  document.getElementById('edit-panel').style.display = 'none';
   document.getElementById('contact-panel').style.display = 'block';
 });
 document.getElementById('del-btn').addEventListener('click', function(){
   newApp.removeContact(searchForm.search.value);
   document.getElementById('results').innerHTML = '<div class="contact-item">Контакт удален</div><hr>';
 })
+
+document.getElementById('js-edit').addEventListener('click', function(){
+  document.getElementById('show-panel').style.display = 'none';
+  document.getElementById('search-panel').style.display = 'none';
+  document.getElementById('contact-panel').style.display = 'none';
+  document.getElementById('edit-panel').style.display = 'block';
+});
+
+const searchEditForm = document.getElementById('searchEdit');
+searchEditForm.addEventListener('submit', function(){
+  const result = newApp.search(searchEditForm.search.value)[0];
+  const nameInput = document.getElementById('person');
+  nameInput.value = result.name;
+  const phoneInput = document.getElementById('phone');
+  phoneInput.value = result.phone;
+  const emailInput = document.getElementById('email');
+  emailInput.value = result.email;
+  const addressInput = document.getElementById('address');
+  addressInput.value = result.address;
+  event.preventDefault();
+});
+
+const editForm  = document.getElementById('editForm');
+editForm.addEventListener('submit', function(){
+  const contact = {
+    name: editForm.person.value,
+    phone: editForm.phone.value,
+    email: editForm.email.value,
+    address: editForm.address.value,
+  };
+  newApp.editContact(searchEditForm.search.value, contact)
+  editForm.reset();
+  searchEditForm.reset();
+  document.getElementById('resultsEdit').innerHTML = '<div class="contact-item">Контакт успешно изменен</div><hr>';
+  event.preventDefault();
+});

@@ -13,9 +13,10 @@
 <body>
     <div id="navigation">
         <div class="nav-list">
-            <button id="js-show-all">Все контакты</button>
-            <button id="js-search">Поиск</button>
-            <button id="js-add-new">Добавить</button>
+            <button class="nav_btn" id="js-show-all">Все контакты</button>
+            <button class="nav_btn" id="js-search">Поиск</button>
+            <button class="nav_btn" id="js-add-new">Добавить</button>
+            <button class="nav_btn" id="js-edit">Редактировать</button>
         </div>
     </div>
     <div id="search-panel" class="panel">
@@ -27,33 +28,64 @@
                     <input type="text" name="search" id="search" placeholder="Введите имя"/>
                 </label>
             </div>
-            <button type="submit">Отправить</button>
-            <button type="button" id="del-btn">Удалить</button>
+            <button class="submit_btn" type="submit">Найти</button>
+            <button class="submit_btn" type="button" id="del-btn">Удалить</button>
         </form>
     </div>
-        <div id="contact-panel" class="panel">
-            <form id="contact" action="#">
-                <h1>Добавить новый контакт</h1>
-                <div>
-                    <label>
-                        <input type="text" name="person" placeholder="Андрей Клименченко"/>
-                    </label>
-                    <label>
-                        <input type="text" name="phone" placeholder="+375293211231"/>
-                    </label>
-                    <label>
-                        <input type="text" name="email" placeholder="andrey90@mail.ru"/>
-                    </label>
-                    <label>
-                        <input type="text" name="address" placeholder="ул. Бехтерева, 5"/>
-                    </label>
-                </div>
-                <div>
-                    <button type="submit">Отправить</button>
-                </div>
-            </form>
-        </div>
-        <div id ="show-panel" class="panel">
+    <div id="contact-panel" class="panel">
+        <form id="contact" action="#">
+            <h1>Добавить новый контакт</h1>
+            <div>
+                <label>
+                    <input type="text" name="person" placeholder="Андрей Клименченко"/>
+                </label>
+                <label>
+                    <input type="text" name="phone" placeholder="+375293211231"/>
+                </label>
+                <label>
+                    <input type="text" name="email" placeholder="andrey90@mail.ru"/>
+                </label>
+                <label>
+                    <input type="text" name="address" placeholder="ул. Бехтерева, 5"/>
+                </label>
+            </div>
+            <div>
+                <button class="submit_btn" type="submit">Добавить</button>
+            </div>
+        </form>
+    </div>
+    <div id ="show-panel" class="panel">
+    </div>
+    <div id="edit-panel" class="panel">
+        <form id="searchEdit" action="#">
+            <div>
+                <label>
+                    <input type="text" name="search" id="searchEdit" placeholder="Введите имя"/>
+                </label>
+            </div>
+            <button class="submit_btn" type="submit">Найти</button>
+        </form>
+        <form id="editForm" action="#">
+            <h1>Редактировать контакт</h1>
+            <div>
+                <label>
+                    <input type="text" name="person" id="person" placeholder=""/>
+                </label>
+                <label>
+                    <input type="text" name="phone" id="phone" placeholder=""/>
+                </label>
+                <label>
+                    <input type="text" name="email" id="email" placeholder=""/>
+                </label>
+                <label>
+                    <input type="text" name="address" id="address" placeholder=""/>
+                </label>
+            </div>
+            <div id="resultsEdit"></div>
+            <div>
+                <button class="submit_btn" type="submit">Редактировать</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>

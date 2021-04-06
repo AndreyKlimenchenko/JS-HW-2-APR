@@ -1,59 +1,81 @@
 h1{
-    font-size:1.2em;
-    text-align:center;
-  }
+  font-size:1.2em;
+  text-align:center;
+}
   
-  .panel{
-    background:rgb(250,250,250);
-    padding:1em;
-    width:92.5%;
-    margin:auto;
-    max-width:30em;
-  }
-  
-  input{
-    width:100%;
-    box-sizing:border-box;
-    font-size:1em;
-    margin-top:0.5em;
-    padding:0.5em;
+.panel{
+  background:rgb(250,250,250);
+  padding:1em;
+  width:92.5%;
+  margin:auto;
+  max-width:30em;
+}
+
+input{
+  width:100%;
+  box-sizing:border-box;
+  font-size:1em;
+  margin-top:0.5em;
+  padding:0.5em;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid rgb(185, 190, 190);
+}
+
+input:focus{
+  outline:none;
+}
+
+input::after{
+  width:100%;
+  height:10px;
+  background:red;
+}
+
+.nav-list{
+  width:92.5%;
+  max-width:30em;
+  text-align:center;
+  margin:auto;
+}
+
+.nav_btn {
+    padding: 0px;
+    margin-right: 1em;
+    background-color: transparent;
+    border: none;
     cursor: pointer;
-    border-radius: 5px;
-    border: 1px solid rgb(185, 190, 190);
-  }
-  
-  input:focus{
-    outline:none;
-  }
-  
-  input::after{
-    width:100%;
-    height:10px;
-    background:red;
-  }
-  .nav-list{
-    width:92.5%;
-    max-width:30em;
-    text-align:center;
-    margin:auto;
-  }
-  
-  button {
-      padding: 0px;
-      margin-right: 1em;
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      outline: none;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 18px;
-      line-height: 23px;
-      letter-spacing: -0.346154px;
-      color: #111111;
-  }
-  
-  button:hover {
-      color: #4A4FF2;
-      transform: scale(1.15);
-  } 
+    outline: none;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 23px;
+    letter-spacing: -0.346154px;
+    color: #111111;
+}
+
+.nav_btn:hover {
+    color: #4A4FF2;
+    transform: scale(1.15);
+} 
+
+#edit-panel {
+  display: none;
+}
+
+.submit_btn {
+  width: 100%;
+  text-align: center;
+  padding: 0px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 23px;
+  letter-spacing: -0.346154px;
+  color: #111111;
+}
+
